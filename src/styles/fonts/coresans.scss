@@ -1,0 +1,59 @@
+@font-face {
+  font-family: 'coresans';
+  src:
+    url('/fonts/coresans/core_sans_cr_45_regular_italic-webfont.woff2') format('woff2'),
+    url('/fonts/coresans/core_sans_cr_45_regular_italic-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'coresans';
+  src:
+    url('/fonts/coresans/core_sans_cr_45_regular-webfont.woff2') format('woff2'),
+    url('/fonts/coresans/core_sans_cr_45_regular-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'coresans';
+  src:
+    url('/fonts/coresans/core_sans_cr_55_medium_italic-webfont.woff2') format('woff2'),
+    url('/fonts/coresans/core_sans_cr_55_medium_italic-webfont.woff') format('woff');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'coresans';
+  src:
+    url('/fonts/coresans/core_sans_cr_55_medium-webfont.woff2') format('woff2'),
+    url('/fonts/coresans/core_sans_cr_55_medium-webfont.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'coresans';
+  src:
+    url('/fonts/coresans/core_sans_cr_65_bold_italic-webfont.woff2') format('woff2'),
+    url('/fonts/coresans/core_sans_cr_65_bold_italic-webfont.woff') format('woff');
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'coresans';
+  src:
+    url('/fonts/coresans/core_sans_cr_65_bold-webfont.woff2') format('woff2'),
+    url('/fonts/coresans/core_sans_cr_65_bold-webfont.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}

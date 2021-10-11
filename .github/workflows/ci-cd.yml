@@ -1,0 +1,49 @@
+name: Continuous integration/deployment
+on: [push]
+jobs:
+
+  commitlint:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+          node-version: [12.x]
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - uses: wagoid/commitlint-github-action@v2
+
+  site:
+    needs: commitlint
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [12.x]
+
+    steps:
+      - name: Cache node modules
+        uses: actions/cache@v1
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: ~/.npm # npm cache files are stored in `~/.npm` on Linux/macOS
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('./packages/site/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+
+      - name: Checkout prevbox-site
+        uses: actions/checkout@v1
+
+      - name: Set up node 12.22.1
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.22.1
+
+      - name: Install Site dependencies
+        run: npm install
+
+      - name: Lint
+        run: npm run lint

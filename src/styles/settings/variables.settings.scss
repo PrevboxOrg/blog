@@ -1,0 +1,30 @@
+@import '../settings/mixins.settings.scss';
+
+$sizes: (
+  'main-wrapper': px-to-rem(1475),
+  'main-wrapper-small': px-to-rem(1075),
+  'header-height': px-to-rem(95),
+  'header-height-mobile': px-to-rem(60),
+);
+
+$colors: (
+  'primary': #051138,
+  'primary-light': #0b133c,
+  'secondary': #77ddee,
+  'tertiary': #c4c4c4,
+  'background': #ffffff,
+  'text': #000000
+);
+
+$colorsContrast: ();
+
+$responsive: (
+  'desktop-large': '1920px',
+  'desktop-medium': '1440px',
+  'desktop-small': '1366px',
+  'mobile-large': '414px',
+  'mobile-medium': '375px',
+  'mobile-small': '320px'
+);
+
+$font: 'coresans', Arial, sans-serif;

@@ -1,0 +1,13 @@
+{
+  "LOGO": "/logo.png",
+  "LOGO_ALT": "Prevbox",
+  "LOGIN_BUTTON": "Acessar",
+  "MENU": [
+    { "TEXT": "Cálculos", "LINK": "#calculos" },
+    { "TEXT": "Petições", "LINK": "#peticoes" },
+    { "TEXT": "Sobre nós", "LINK": "#sobre-nos" },
+    { "TEXT": "Perguntas", "LINK": "#perguntas" },
+    { "TEXT": "Assinaturas", "LINK": "#assinaturas" },
+    { "TEXT": "Blog", "LINK": "/blog", "EXTERNAL": "true" }
+  ]
+}

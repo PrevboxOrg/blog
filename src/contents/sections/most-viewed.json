@@ -1,0 +1,49 @@
+{
+  "EXPLORE_CATEGORIES": "Explore por categoria",
+  "CATEGORIES": [
+    { "TITLE": "Benefícios", "SLUG": "beneficios" },
+    { "TITLE": "Cálculos", "SLUG": "calculos" },
+    { "TITLE": "Petições", "SLUG": "peticoes" },
+    { "TITLE": "Revisões", "SLUG": "revisoes" }
+  ],
+  "MOST_VIEWED": "Mais vistos",
+  "SEE_MORE": "Veja mais",
+  "MOST_VIEWED_POSTS": [
+    {
+      "SLUG": "a-melhor-ferramenta-para-seu-escritorio-previdenciario",
+      "TITLE": "A melhor ferramenta para seu escritório previdenciário",
+      "IMAGE": "post-image-01.png",
+      "CATEGORIES": [
+        { "TITLE": "Benefícios", "SLUG": "beneficios" },
+        { "TITLE": "Cálculos", "SLUG": "calculos" }
+      ],
+      "UPDATED_AT": "2021-10-10T19:02:59Z",
+      "AUTHOR": {
+        "NAME": "Antônio Carlos",
+        "IMAGE": null
+      }
+    },
+    {
+      "SLUG": "a-melhor-ferramenta-para-seu-escritorio-previdenciario",
+      "TITLE": "A melhor ferramenta para seu escritório previdenciário 2 ",
+      "IMAGE": "post-image-02.png",
+      "CATEGORIES": [{ "TITLE": "Benefícios", "SLUG": "beneficios" }],
+      "UPDATED_AT": "2021-10-10T22:19:33Z",
+      "AUTHOR": {
+        "NAME": "Antônio Carlos",
+        "IMAGE": null
+      }
+    },
+    {
+      "SLUG": "a-melhor-ferramenta-para-seu-escritorio-previdenciario",
+      "TITLE": "A melhor ferramenta para seu escritório previdenciário 3",
+      "IMAGE": "post-image-03.png",
+      "CATEGORIES": [{ "TITLE": "Benefícios", "SLUG": "beneficios" }],
+      "UPDATED_AT": "2021-10-10T19:02:59Z",
+      "AUTHOR": {
+        "NAME": "Antônio Carlos",
+        "IMAGE": null
+      }
+    }
+  ]
+}

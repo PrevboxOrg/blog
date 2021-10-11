@@ -1,0 +1,64 @@
+@import './settings/normalize.settings.scss';
+@import './settings/variables.settings.scss';
+@import './settings/globals.settings.scss';
+@import './fonts/coresans.scss';
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: map-get($colors, 'background');
+  overscroll-behavior-y: none;
+}
+
+html {
+  font-size: 16px;
+  font-family: $font;
+  font-weight: 600;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+
+  @media only screen and (max-width: #{map-get($responsive, 'desktop-medium')}) {
+    font-size: 14px;
+  }
+
+  @media only screen and (max-width: #{map-get($responsive, 'desktop-small')}) {
+    font-size: 12px;
+  }
+}
+
+* {
+  text-rendering: optimizeLegibility;
+  -o-text-rendering: optimizeLegibility;
+  -ms-text-rendering: optimizeLegibility;
+  -moz-text-rendering: optimizeLegibility;
+  -webkit-text-rendering: optimizeLegibility;
+  -webkit-tap-highlight-color: transparent;
+  box-sizing: border-box;
+
+  &:before,
+  &:after {
+    box-sizing: border-box;
+  }
+
+  // Remove focus outline
+  &:focus {
+    outline: none;
+  }
+}
+
+.main-wrapper {
+  margin: 0 auto;
+  padding: 0px px-to-rem(25);
+  position: relative;
+  z-index: 25;
+  width: 100%;
+  max-width: map-get($sizes, 'main-wrapper');
+
+  &--small {
+    max-width: map-get($sizes, 'main-wrapper-small');
+  }
+}

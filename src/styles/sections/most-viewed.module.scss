@@ -1,0 +1,158 @@
+@import './../settings/mixins.settings.scss';
+@import './../settings/variables.settings.scss';
+
+.most-viewed-section {
+  margin-bottom: px-to-rem(200);
+  position: relative;
+  width: 100%;
+
+  &__title {
+    margin-top: px-to-rem(0);
+    margin-bottom: px-to-rem(40);
+    font-size: px-to-rem(36);
+    color: map-get($colors, 'primary-light');
+    font-weight: 600;
+  }
+
+  &__posts-main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: px-to-rem(300) px-to-rem(300);
+    gap: px-to-rem(55);
+    grid-template-areas:
+      "second-post first-post"
+      "third-post first-post";
+    width: 100%;
+
+    div {
+      &:nth-child(1) {
+        grid-area: first-post;
+      }
+
+      &:nth-child(2) {
+        grid-area: second-post;
+      }
+
+      &:nth-child(3) {
+        grid-area: third-post;
+      }
+    }
+  }
+
+  .most-viewed-post {
+    position: relative;
+    background-position: center;
+    background-size: cover;
+    border-radius: px-to-rem(20);
+    transition: transform 250ms;
+
+    .most-viewed-post-info {
+      padding-top: px-to-rem(30);
+      padding-bottom: px-to-rem(24);
+      padding-left: px-to-rem(35);
+      padding-right: px-to-rem(35);
+      position: absolute;
+      bottom: px-to-rem(-25);
+      left: 50%;
+      z-index: 10;
+      width: px-to-rem(530);
+      background-color: map-get($colors, 'secondary');
+      border-radius: px-to-rem(20);
+      opacity: 1;
+      transition: opacity 250ms;
+      transform: translateX(-50%);
+
+      &__categories {
+        margin-top: px-to-rem(0);
+        margin-bottom: px-to-rem(15);
+        display: flex;
+
+        &__category {
+          @include link(map-get($colors, 'background'));
+          position: relative;
+          font-size: px-to-rem(16);
+          font-weight: 500;
+
+          &:not(:last-child) {
+            margin-right: px-to-rem(20);
+
+            &::after {
+              content: '-';
+              position: absolute;
+              top: 50%;
+              right: calc(#{px-to-rem(-20)} / 2);
+              transform: translate(50%, -50%);
+            }
+          }
+        }
+      }
+
+      &__title {
+        @include link(map-get($colors, 'primary-light'));
+        font-size: px-to-rem(24);
+        font-weight: 600;
+      }
+
+      &__footer {
+        margin-top: px-to-rem(35);
+        display: flex;
+        align-items: flex-end;
+        height: px-to-rem(55);
+
+        &__author-image {
+          margin-right: px-to-rem(10);
+          width: px-to-rem(55);
+          height: px-to-rem(55);
+        }
+
+        &__author-name {
+          font-size: px-to-rem(14);
+          font-weight: 600;
+          color: map-get($colors, 'primary-light');
+        }
+
+        &__updated_at {
+          font-size: px-to-rem(12);
+          color: map-get($colors, 'background');
+        }
+
+        &__post-info {
+          margin-right: px-to-rem(60);
+          display: flex;
+          flex-direction: column;
+          justify-content: space-around;
+          height: 100%;
+        }
+
+        &__social-link {
+          margin-right: px-to-rem(10);
+
+          svg {
+            width: px-to-rem(25);
+            height: px-to-rem(25);
+
+            path {
+              transition: stroke 250ms;
+            }
+          }
+
+          &:hover svg path {
+            stroke: map-get($colors, 'background');
+          }
+        }
+      }
+
+      &--full {
+        .most-viewed-post-info {
+          &__title {
+            font-size: px-to-rem(30);
+          }
+        }
+      }
+    }
+
+    &:hover {
+      transform: scale(1.02);
+    }
+  }
+}

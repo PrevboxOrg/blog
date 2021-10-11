@@ -1,0 +1,28 @@
+.main-slider {
+  .swiper-container {
+    overflow: initial;
+  }
+
+  .swiper-slide {
+    display: flex;
+  }
+
+  .swiper-pagination-bullets {
+    bottom: -35px;
+    left: initial;
+    right: 8vw;
+    text-align: right;
+  }
+
+  .swiper-pagination-bullet {
+    width: 18px !important;
+    height: 18px !important;
+    border-radius: 4px !important;
+    opacity: 1 !important;
+    background: map-get($colors, 'background') !important;
+
+    &-active {
+      background: map-get($colors, 'primary') !important;
+    }
+  }
+}

@@ -1,0 +1,87 @@
+@import './../settings/mixins.settings.scss';
+@import './../settings/variables.settings.scss';
+
+.footer {
+  margin-bottom: px-to-rem(100);
+  display: flex;
+  height: px-to-rem(125);
+
+  @media only screen and (max-width: #{map-get($responsive, 'mobile-large')}) {
+    height: initial;
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    &:nth-child(1) {
+      width: 45%;
+      flex: 45%;
+    }
+
+    &:nth-child(2) {
+      align-items: flex-end;
+      width: 55%;
+      flex: 55%;
+    }
+  }
+
+  &__logo {
+    width: px-to-rem(117);
+    height: px-to-rem(43);
+  }
+
+  &__info {
+    margin: px-to-rem(0);
+    font-size: px-to-rem(14);
+    color: map-get($colors, 'primary');
+  }
+
+  &__menu {
+    padding: px-to-rem(0);
+    margin: px-to-rem(0);
+    display: flex;
+    list-style: none;
+
+    @media only screen and (max-width: #{map-get($responsive, 'mobile-large')}) {
+      margin-bottom: px-to-rem(25);
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    li {
+      @media only screen and (max-width: #{map-get($responsive, 'mobile-large')}) {
+        text-align: right;
+        margin-bottom: px-to-rem(15);
+      }
+    }
+
+    &__item {
+      margin-left: px-to-rem(35);
+      font-size: px-to-rem(16);
+      font-weight: 700;
+      color: map-get($colors, 'primary');
+      text-decoration: none;
+      transition: color 250ms;
+
+      @media only screen and (max-width: #{map-get($responsive, 'mobile-large')}) {
+        margin-left: px-to-rem(0);
+        font-size: px-to-rem(20);
+      }
+
+      &:hover {
+        color: map-get($colors, 'secondary');
+      }
+    }
+  }
+
+  &__social {
+    display: flex;
+
+    img {
+      margin-left: px-to-rem(25);
+      width: px-to-rem(31);
+    }
+  }
+}
