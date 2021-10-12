@@ -6,12 +6,19 @@
   position: relative;
   width: 100%;
 
-  &__title {
+  &__header {
     margin-top: px-to-rem(0);
     margin-bottom: px-to-rem(40);
-    font-size: px-to-rem(36);
-    color: map-get($colors, 'primary-light');
-    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &__title {
+      margin: 0;
+      font-size: px-to-rem(36);
+      color: map-get($colors, 'primary-light');
+      font-weight: 600;
+    }
   }
 
   &__posts-main {

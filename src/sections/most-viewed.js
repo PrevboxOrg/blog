@@ -4,6 +4,8 @@ import cn from 'classnames';
 import s from './../styles/sections/most-viewed.module.scss';
 import c from '../contents/sections/most-viewed.json';
 
+import Select from './../components/select';
+
 import FacebookSVG from './../../public/social/facebook.svg';
 import TwitterSVG from './../../public/social/twitter.svg';
 import LinkedinSVG from './../../public/social/linkedin.svg';
@@ -14,12 +16,24 @@ export default function MostViewedSection () {
   const firstPost = posts.shift();
   const secondPost = posts.shift();
   const thirdPost = posts.shift();
+  const selectItems = c.CATEGORIES.map((category) => {
+    return {
+      TEXT: category.TITLE,
+      VALUE: category.SLUG
+    };
+  });
 
   return (
     <div className={`${s['most-viewed-section']} main-wrapper`}>
-      <h3 className={s['most-viewed-section__title']}>
-        {c.MOST_VIEWED}
-      </h3>
+      <div className={s['most-viewed-section__header']}>
+        <h3 className={s['most-viewed-section__header__title']}>
+          {c.MOST_VIEWED}
+        </h3>
+
+        <Select
+          placeholder={c.EXPLORE_CATEGORIES}
+          items={selectItems}/>
+      </div>
 
       <div className={s['most-viewed-section__posts-main']}>
         <Post post={firstPost} full={true} />

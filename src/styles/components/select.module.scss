@@ -1,0 +1,83 @@
+@import './../settings/mixins.settings.scss';
+@import './../settings/variables.settings.scss';
+
+.select {
+  position: relative;
+  z-index: 10;
+  display: inline-flex;
+  width: 100%;
+  max-width: px-to-rem(466);
+
+  &__placeholder {
+    position: relative;
+    z-index: 10;
+    padding: 0 px-to-rem(24);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: px-to-rem(48);
+    border-radius: px-to-rem(24);
+    background-color: map-get($colors, 'primary-light');
+    cursor: pointer;
+
+    &__text {
+      font-size: px-to-rem(18);
+      font-weight: 500;
+      color: map-get($colors, 'secondary');
+    }
+
+    svg {
+      width: px-to-rem(20);
+      transition: transform 250ms;
+    }
+  }
+
+  &__items {
+    padding-top: px-to-rem(56);
+    padding-left: px-to-rem(24);
+    padding-right: px-to-rem(24);
+    padding-bottom: px-to-rem(24);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 9;
+    width: 100%;
+    list-style: none;
+    border-bottom-left-radius: px-to-rem(24);
+    border-bottom-right-radius: px-to-rem(24);
+    background-color: map-get($colors, 'background');
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 250ms, visibility 250ms;
+
+    &__item {
+      font-size: px-to-rem(18);
+      font-weight: 600;
+      color: map-get($colors, 'tertiary-dark');
+      transition: color 250ms;
+      cursor: pointer;
+
+      &:not(:last-child) {
+        margin-bottom: px-to-rem(20)
+      }
+
+      &:hover {
+        color: map-get($colors, 'primary-light');
+      }
+    }
+  }
+
+  &:hover {
+    .select__placeholder {
+      svg {
+        transform: translateX(180deg);
+      }
+    }
+
+    .select__items {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}
