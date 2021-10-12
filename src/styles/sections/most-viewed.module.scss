@@ -46,6 +46,23 @@
     }
   }
 
+  &__see-more {
+    @include button(map-get($colors, 'secondary'));
+    margin-top: px-to-rem(100);
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: px-to-rem(48);
+    width: px-to-rem(160);
+    font-size: px-to-rem(18);
+    color: map-get($colors, 'secondary');
+    background-color: map-get($colors, 'primary-light');
+    border-radius: px-to-rem(24);
+    text-decoration: none;
+  }
+
   .most-viewed-post {
     position: relative;
     background-position: center;

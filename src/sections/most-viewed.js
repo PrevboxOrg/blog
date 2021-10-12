@@ -12,10 +12,6 @@ import LinkedinSVG from './../../public/social/linkedin.svg';
 import InstagramSVG from './../../public/social/instagram.svg';
 
 export default function MostViewedSection () {
-  const posts = [ ...c.MOST_VIEWED_POSTS ];
-  const firstPost = posts.shift();
-  const secondPost = posts.shift();
-  const thirdPost = posts.shift();
   const selectItems = c.CATEGORIES.map((category) => {
     return {
       TEXT: category.TITLE,
@@ -36,10 +32,16 @@ export default function MostViewedSection () {
       </div>
 
       <div className={s['most-viewed-section__posts-main']}>
-        <Post post={firstPost} full={true} />
-        <Post post={secondPost} />
-        <Post post={thirdPost} />
+        <Post post={c.MOST_VIEWED_POSTS[0]} full={true} />
+        <Post post={c.MOST_VIEWED_POSTS[1]} />
+        <Post post={c.MOST_VIEWED_POSTS[2]} />
       </div>
+
+      <Link href={'/pesquisa?tipo=mais-vistos'}>
+        <a className={s['most-viewed-section__see-more']}>
+          {c.SEE_MORE}
+        </a>
+      </Link>
     </div>
   );
 }
@@ -57,7 +59,7 @@ function Post ({ post, full }) {
           {post.CATEGORIES.map((category, categoryIndex) => {
             return (
               <Link
-                href={`/categorias/${category.SLUG}`}
+                href={`/pesquisa?categoria=${category.SLUG}`}
                 key={`main-section-item-category-${categoryIndex}`}>
                 <a className={s['most-viewed-post-info__categories__category']}>
                   {category.TITLE}

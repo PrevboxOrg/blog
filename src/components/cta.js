@@ -1,4 +1,5 @@
 import s from './../styles/components/cta.module.scss';
+import c from './../contents/components/cta.json';
 
 export default function CTA () {
   return (

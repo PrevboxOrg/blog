@@ -62,7 +62,7 @@ export default function MainSection () {
           {activeSlide.CATEGORIES.map((category, categoryIndex) => {
             return (
               <Link
-                href={`/categorias/${category.SLUG}`}
+                href={`/pesquisa?categoria=${category.SLUG}`}
                 key={`main-section-item-category-${categoryIndex}`}>
                 <a className={s['slide-info__categories__category']}>
                   {category.TITLE}

@@ -7,7 +7,6 @@
     { "TEXT": "Petições", "LINK": "#peticoes" },
     { "TEXT": "Sobre nós", "LINK": "#sobre-nos" },
     { "TEXT": "Perguntas", "LINK": "#perguntas" },
-    { "TEXT": "Assinaturas", "LINK": "#assinaturas" },
-    { "TEXT": "Blog", "LINK": "/blog", "EXTERNAL": "true" }
+    { "TEXT": "Assinaturas", "LINK": "#assinaturas" }
   ]
 }
