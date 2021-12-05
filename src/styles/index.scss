@@ -62,3 +62,9 @@ html {
     max-width: map-get($sizes, 'main-wrapper-small');
   }
 }
+
+.hide-mobile {
+  @media only screen and (max-width: #{map-get($responsive, 'mobile-large')}) {
+    display: none !important;
+  }
+}

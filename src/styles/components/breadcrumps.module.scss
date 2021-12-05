@@ -1,0 +1,37 @@
+@import './../settings/mixins.settings.scss';
+@import './../settings/variables.settings.scss';
+
+.breadcrumps {
+  margin-bottom: px-to-rem(20);
+  display: flex;
+  flex-wrap: wrap;
+
+  &__item {
+    @include link(map-get($colors, 'tertiary-dark'));
+    position: relative;
+    display: block;
+    font-size: px-to-rem(14);
+    font-weight: 500;
+
+    &:not(:last-of-type) {
+      margin-right: px-to-rem(30);
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        right: px-to-rem(-15);
+        width: 4px;
+        height: 4px;
+        border-radius: 100%;
+        background-color: map-get($colors, 'tertiary-dark');
+        transform: translate(50%, -50%);
+      }
+    }
+  }
+
+  &--top {
+    margin-top: px-to-rem(25);
+    margin-bottom: 0px;
+  }
+}

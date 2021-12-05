@@ -12,6 +12,11 @@
     left: initial;
     right: 8vw;
     text-align: right;
+
+    @media only screen and (max-width: #{map-get($responsive, 'mobile-large')}) {
+      text-align: center;
+      right: 0px;
+    }
   }
 
   .swiper-pagination-bullet {

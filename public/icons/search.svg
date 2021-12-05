@@ -1,0 +1,18 @@
+<svg version="1.2" baseProfile="tiny-ps" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 284 284" width="284" height="284">
+	<title>Vector Smart Object-ai</title>
+	<style>
+		tspan { white-space:pre }
+		.shp0 { fill: none;stroke: #49e1f2;stroke-linecap:round;stroke-width: 20 } 
+	</style>
+	<g id="Isolation Mode">
+		<g id="&lt;Group&gt;">
+			<path id="&lt;Path&gt;" class="shp0" d="M190.33 189.96L170.73 170.36" />
+			<g id="&lt;Group&gt;">
+				<path id="&lt;Path&gt;" class="shp0" d="M125.71 195.26C75.62 206.73 25.71 175.43 14.24 125.34C2.76 75.25 34.07 25.34 84.16 13.87C134.25 2.39 184.16 33.7 195.63 83.79C207.1 133.88 175.8 183.79 125.71 195.26Z" />
+				<path id="&lt;Path&gt;" class="shp0" d="M266.05 262.66C257.76 272.69 242.88 273.22 233.9 264.24L200.07 230.41C192.66 223 188.1 213.21 187.2 202.77L186.89 199.17C186.27 192 192.35 186.05 199.51 186.82L200.58 186.94C213.25 188.32 225.06 193.98 234.07 202.99L263.95 232.87C271.97 240.89 273.27 253.91 266.05 262.66Z" />
+				<path id="&lt;Path&gt;" class="shp0" d="M171.19 89.39C169.49 81.95 166.62 75.08 162.83 68.92" />
+				<path id="&lt;Path&gt;" class="shp0" d="M150.88 54.46C147.83 51.67 144.54 49.17 141.05 46.98" />
+			</g>
+		</g>
+	</g>
+</svg>

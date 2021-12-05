@@ -71,51 +71,49 @@ function Video ({ video, full }) {
         {video.TITLE}
       </span>
 
-      {full && (
-        <div className={s['featured-video__footer']}>
-          <div className={s['featured-video__footer__author']}>
-            <img
-              className={s['featured-video__footer__author-image']}
-              src={video.AUTHOR.IMAGE || '/default-user-image.png'}
-              alt={video.AUTHOR.NAME} />
+      <div className={s['featured-video__footer']}>
+        <div className={s['featured-video__footer__author']}>
+          <img
+            className={s['featured-video__footer__author-image']}
+            src={video.AUTHOR.IMAGE || '/default-user-image.png'}
+            alt={video.AUTHOR.NAME} />
 
-            <div className={s['featured-video__footer__post-info']}>
-              <span className={s['featured-video__footer__author-name']}>
-                {video.AUTHOR.NAME}
-              </span>
-              <span className={s['featured-video__footer__updated_at']}>
-                {dayjs(video.UPDATED_AT).locale('pt-br').format('MMMM D, YYYY')}
-              </span>
-            </div>
-          </div>
-
-          <div className={s['featured-video__footer__social']}>
-            <Link href={'https://facebook.com'}>
-              <a className={s['featured-video__footer__social-link']}>
-                <FacebookSVG />
-              </a>
-            </Link>
-
-            <Link href={'https://twitter.com'}>
-              <a className={s['featured-video__footer__social-link']}>
-                <TwitterSVG />
-              </a>
-            </Link>
-
-            <Link href={'https://linkedin.com'}>
-              <a className={s['featured-video__footer__social-link']}>
-                <LinkedinSVG />
-              </a>
-            </Link>
-
-            <Link href={'https://instagram.com'}>
-              <a className={s['featured-video__footer__social-link']}>
-                <InstagramSVG />
-              </a>
-            </Link>
+          <div className={s['featured-video__footer__post-info']}>
+            <span className={s['featured-video__footer__author-name']}>
+              {video.AUTHOR.NAME}
+            </span>
+            <span className={s['featured-video__footer__updated_at']}>
+              {dayjs(video.UPDATED_AT).locale('pt-br').format('MMMM D, YYYY')}
+            </span>
           </div>
         </div>
-      )}
+
+        <div className={s['featured-video__footer__social']}>
+          <Link href={'https://facebook.com'}>
+            <a className={s['featured-video__footer__social-link']}>
+              <FacebookSVG />
+            </a>
+          </Link>
+
+          <Link href={'https://twitter.com'}>
+            <a className={s['featured-video__footer__social-link']}>
+              <TwitterSVG />
+            </a>
+          </Link>
+
+          <Link href={'https://linkedin.com'}>
+            <a className={s['featured-video__footer__social-link']}>
+              <LinkedinSVG />
+            </a>
+          </Link>
+
+          <Link href={'https://instagram.com'}>
+            <a className={s['featured-video__footer__social-link']}>
+              <InstagramSVG />
+            </a>
+          </Link>
+        </div>
+      </div>
     </div>
   );
 }

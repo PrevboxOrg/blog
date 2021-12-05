@@ -27,6 +27,7 @@
   &__logo {
     height: px-to-rem(57);
     z-index: 30;
+    cursor: pointer;
 
     @media only screen and (max-width: #{map-get($responsive, 'mobile-large')}) {
       height: px-to-rem(45);

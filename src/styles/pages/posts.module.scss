@@ -1,0 +1,140 @@
+@import './../settings/mixins.settings.scss';
+@import './../settings/variables.settings.scss';
+
+.posts {
+  margin-top: calc(#{map-get($sizes, 'header-height')} + #{px-to-rem(100)});
+  margin-bottom: px-to-rem(100);
+
+  &__title {
+    margin-top: 0px;
+    margin-bottom: px-to-rem(70);
+    font-size: px-to-rem(36);
+    color: map-get($colors, 'primary-light');
+    font-weight: 600;
+  }
+
+  &__wrapper {
+    display: grid;
+    grid-template-columns: calc(75% - #{px-to-rem(60)}) 25%;
+    gap: px-to-rem(60);
+
+    @media only screen and (max-width: #{map-get($responsive, 'mobile-large')}) {
+      display: flex;
+      flex-direction: column-reverse;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+
+    &__see-more {
+      @include button(map-get($colors, 'secondary'));
+      margin-top: px-to-rem(30);
+      margin-left: auto;
+      margin-right: auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: px-to-rem(48);
+      width: px-to-rem(160);
+      font-size: px-to-rem(18);
+      color: map-get($colors, 'secondary');
+      background-color: map-get($colors, 'primary-light');
+      border-radius: px-to-rem(24);
+      text-decoration: none;
+    }
+  }
+
+  &__sidebar {
+    display: flex;
+    flex-direction: column;
+
+    &__title {
+      margin: 0px;
+      padding-bottom: px-to-rem(12);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-bottom: thin solid map-get($colors, 'tertiary-dark');
+    }
+  }
+
+  .post {
+    margin-bottom: px-to-rem(30);
+    padding-top: px-to-rem(35);
+    padding-bottom: px-to-rem(26);
+    padding-left: px-to-rem(35);
+    padding-right: px-to-rem(35);
+    left: 50%;
+    z-index: 10;
+    background-color: map-get($colors, 'background');
+    border: thin solid map-get($colors, 'tertiary-dark');
+    border-radius: px-to-rem(20);
+
+    &__title {
+      @include link(map-get($colors, 'primary-light'));
+      font-size: px-to-rem(24);
+      font-weight: 600;
+    }
+
+    &__footer {
+      margin-top: px-to-rem(35);
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      height: px-to-rem(55);
+
+      &__wrapper {
+        display: flex;
+        align-items: flex-end;
+
+        &:first-of-type {
+          align-items: center;
+        }
+      }
+
+      &__author-image {
+        margin-right: px-to-rem(10);
+        width: px-to-rem(55);
+        height: px-to-rem(55);
+      }
+
+      &__author-name {
+        font-size: px-to-rem(14);
+        font-weight: 600;
+        color: map-get($colors, 'primary-light');
+      }
+
+      &__updated_at {
+        font-size: px-to-rem(12);
+        color: map-get($colors, 'tertiary-dark');
+      }
+
+      &__post-info {
+        margin-right: px-to-rem(60);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        height: 100%;
+      }
+
+      &__social-link {
+        margin-right: px-to-rem(10);
+
+        svg {
+          width: px-to-rem(25);
+          height: px-to-rem(25);
+
+          path {
+            transition: stroke 250ms;
+          }
+        }
+
+        &:hover svg path {
+          stroke: map-get($colors, 'tertiary-dark');
+        }
+      }
+    }
+  }
+}

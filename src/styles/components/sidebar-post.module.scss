@@ -1,0 +1,30 @@
+@import './../settings/mixins.settings.scss';
+@import './../settings/variables.settings.scss';
+
+.sidebar-post {
+  margin-top: px-to-rem(18);
+  display: flex;
+
+  &__image {
+    margin-right: px-to-rem(20);
+    height: px-to-rem(95);
+    width: px-to-rem(95);
+    object-fit: cover;
+    border-radius: px-to-rem(9);
+  }
+
+  &__info {
+    padding-top: px-to-rem(12);
+
+    &__title {
+      @include link(map-get($colors, 'primary-light'));
+      font-size: px-to-rem(16);
+      font-weight: 600;
+    }
+
+    &__updated_at {
+      font-size: px-to-rem(12);
+      color: map-get($colors, 'tertiary-dark');
+    }
+  }
+}

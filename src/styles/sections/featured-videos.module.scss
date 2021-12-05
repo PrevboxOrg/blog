@@ -26,6 +26,11 @@
       "video-1 see-more see-more";
     width: 100%;
 
+    @media only screen and (max-width: #{map-get($responsive, 'mobile-large')}) {
+      display: flex;
+      flex-direction: column;
+    }
+
     div {
       &:nth-child(1) { grid-area: video-1; }
       &:nth-child(2) { grid-area: video-2; }
@@ -59,7 +64,7 @@
     width: 100%;
     background-color: map-get($colors, 'primary');
     border-radius: 5% / 7%;
-    transform: skew(25deg) translateX(-50%);
+    transform: skew(8deg) translateX(-50%);
 
     @media only screen and (max-width: #{map-get($responsive, 'mobile-large')}) {
       left: 0;
@@ -87,6 +92,10 @@
   .featured-video {
     display: flex;
     flex-direction: column;
+
+    @media only screen and (max-width: #{map-get($responsive, 'mobile-large')}) {
+      height: px-to-rem(400);
+    }
 
     &__image {
       display: flex;
@@ -139,14 +148,22 @@
       font-size: px-to-rem(16);
       font-weight: 600;
       color: map-get($colors, 'secondary');
+
+      @media only screen and (max-width: #{map-get($responsive, 'mobile-large')}) {
+        font-size: px-to-rem(24);
+      }
     }
 
     &__footer {
       margin-top: px-to-rem(35);
-      display: flex;
+      display: none;
       justify-content: space-between;
       align-items: flex-end;
       height: px-to-rem(55);
+
+      @media only screen and (max-width: #{map-get($responsive, 'mobile-large')}) {
+        display: flex;
+      }
 
       &__author, &__social {
         display: flex;
@@ -209,6 +226,10 @@
 
         &__title {
           font-size: px-to-rem(24);
+        }
+
+        &__footer {
+          display: flex;
         }
       }
     }

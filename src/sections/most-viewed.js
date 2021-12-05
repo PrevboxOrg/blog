@@ -37,7 +37,7 @@ export default function MostViewedSection () {
         <Post post={c.MOST_VIEWED_POSTS[2]} />
       </div>
 
-      <Link href={'/pesquisa?tipo=mais-vistos'}>
+      <Link href={'/posts?tipo=mais-vistos'}>
         <a className={s['most-viewed-section__see-more']}>
           {c.SEE_MORE}
         </a>
@@ -75,47 +75,45 @@ function Post ({ post, full }) {
           </a>
         </Link>
 
-        {full && (
-          <div className={s['most-viewed-post-info__footer']}>
-            <img
-              className={s['most-viewed-post-info__footer__author-image']}
-              src={post.AUTHOR.IMAGE || '/default-user-image.png'}
-              alt={post.AUTHOR.NAME} />
+        <div className={s['most-viewed-post-info__footer']}>
+          <img
+            className={s['most-viewed-post-info__footer__author-image']}
+            src={post.AUTHOR.IMAGE || '/default-user-image.png'}
+            alt={post.AUTHOR.NAME} />
 
-            <div className={s['most-viewed-post-info__footer__post-info']}>
-              <span className={s['most-viewed-post-info__footer__author-name']}>
-                {post.AUTHOR.NAME}
-              </span>
-              <span className={s['most-viewed-post-info__footer__updated_at']}>
-                {dayjs(post.UPDATED_AT).locale('pt-br').format('MMMM D, YYYY')}
-              </span>
-            </div>
-
-            <Link href={'https://facebook.com'}>
-              <a className={s['most-viewed-post-info__footer__social-link']}>
-                <FacebookSVG />
-              </a>
-            </Link>
-
-            <Link href={'https://twitter.com'}>
-              <a className={s['most-viewed-post-info__footer__social-link']}>
-                <TwitterSVG />
-              </a>
-            </Link>
-
-            <Link href={'https://linkedin.com'}>
-              <a className={s['most-viewed-post-info__footer__social-link']}>
-                <LinkedinSVG />
-              </a>
-            </Link>
-
-            <Link href={'https://instagram.com'}>
-              <a className={s['most-viewed-post-info__footer__social-link']}>
-                <InstagramSVG />
-              </a>
-            </Link>
+          <div className={s['most-viewed-post-info__footer__post-info']}>
+            <span className={s['most-viewed-post-info__footer__author-name']}>
+              {post.AUTHOR.NAME}
+            </span>
+            <span className={s['most-viewed-post-info__footer__updated_at']}>
+              {dayjs(post.UPDATED_AT).locale('pt-br').format('MMMM D, YYYY')}
+            </span>
           </div>
-        )}
+
+          <Link href={'https://facebook.com'}>
+            <a className={s['most-viewed-post-info__footer__social-link']}>
+              <FacebookSVG />
+            </a>
+          </Link>
+
+          <Link href={'https://twitter.com'}>
+            <a className={s['most-viewed-post-info__footer__social-link']}>
+              <TwitterSVG />
+            </a>
+          </Link>
+
+          <Link href={'https://linkedin.com'}>
+            <a className={s['most-viewed-post-info__footer__social-link']}>
+              <LinkedinSVG />
+            </a>
+          </Link>
+
+          <Link href={'https://instagram.com'}>
+            <a className={s['most-viewed-post-info__footer__social-link']}>
+              <InstagramSVG />
+            </a>
+          </Link>
+        </div>
       </div>
     </div>
   );

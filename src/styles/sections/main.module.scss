@@ -32,6 +32,11 @@
     opacity: 1;
     transition: opacity 250ms;
 
+    @media only screen and (max-width: #{map-get($responsive, 'mobile-large')}) {
+      width: 100%;
+      transform: translateX(-50%);
+    }
+
     &__categories {
       margin-top: px-to-rem(0);
       margin-bottom: px-to-rem(15);
@@ -126,6 +131,10 @@
       &:hover {
         transform: translate(25%, -100%);
       }
+
+      @media only screen and (max-width: #{map-get($responsive, 'mobile-large')}) {
+        display: none;
+      }
     }
   }
 
@@ -139,5 +148,11 @@
     background-color: map-get($colors, 'secondary');
     border-radius: px-to-rem(50);
     transform: rotate(20deg) skewX(-20deg);
+
+    @media only screen and (max-width: #{map-get($responsive, 'mobile-large')}) {
+      transform: translateX(50%);
+      width: 80%;
+      right: 50%;
+    }
   }
 }

@@ -13,23 +13,36 @@
     justify-content: space-between;
     align-items: center;
 
+    @media only screen and (max-width: #{map-get($responsive, 'mobile-large')}) {
+      flex-direction: column;
+    }
+
     &__title {
       margin: 0;
       font-size: px-to-rem(36);
       color: map-get($colors, 'primary-light');
       font-weight: 600;
+
+      @media only screen and (max-width: #{map-get($responsive, 'mobile-large')}) {
+        margin-bottom: px-to-rem(35);
+      }
     }
   }
 
   &__posts-main {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: px-to-rem(300) px-to-rem(300);
+    grid-template-rows: px-to-rem(300) px-to-rem(300) px-to-rem(300);
     gap: px-to-rem(55);
     grid-template-areas:
       "second-post first-post"
       "third-post first-post";
     width: 100%;
+
+    @media only screen and (max-width: #{map-get($responsive, 'mobile-large')}) {
+      display: flex;
+      flex-direction: column;
+    }
 
     div {
       &:nth-child(1) {
@@ -70,6 +83,10 @@
     border-radius: px-to-rem(20);
     transition: transform 250ms;
 
+    @media only screen and (max-width: #{map-get($responsive, 'mobile-large')}) {
+      height: px-to-rem(400);
+    }
+
     .most-viewed-post-info {
       padding-top: px-to-rem(30);
       padding-bottom: px-to-rem(24);
@@ -85,6 +102,10 @@
       opacity: 1;
       transition: opacity 250ms;
       transform: translateX(-50%);
+
+      @media only screen and (max-width: #{map-get($responsive, 'mobile-large')}) {
+        width: 100%;
+      }
 
       &__categories {
         margin-top: px-to-rem(0);
@@ -119,9 +140,13 @@
 
       &__footer {
         margin-top: px-to-rem(35);
-        display: flex;
+        display: none;
         align-items: flex-end;
         height: px-to-rem(55);
+
+        @media only screen and (max-width: #{map-get($responsive, 'mobile-large')}) {
+          display: flex;
+        }
 
         &__author-image {
           margin-right: px-to-rem(10);
@@ -170,6 +195,14 @@
         .most-viewed-post-info {
           &__title {
             font-size: px-to-rem(30);
+
+            @media only screen and (max-width: #{map-get($responsive, 'mobile-large')}) {
+              font-size: px-to-rem(24);
+            }
+          }
+
+          &__footer {
+            display: flex;
           }
         }
       }

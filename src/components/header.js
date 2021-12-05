@@ -12,9 +12,11 @@ export default function Header () {
       [s['header']]: true,
       [s['header--active']]: active
     })}>
-      <img
-        className={s['header__logo']}
-        src={c['LOGO']} alt={c['LOGO_ALT']} />
+      <Link href={'/'} passHref>
+        <img
+          className={s['header__logo']}
+          src={c['LOGO']} alt={c['LOGO_ALT']} />
+      </Link>
 
       <ul className={s['header__menu']}>
         {c['MENU'].map((menuItem, index) => {
