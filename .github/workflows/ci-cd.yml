@@ -37,13 +37,32 @@ jobs:
       - name: Checkout prevbox-site
         uses: actions/checkout@v1
 
-      - name: Set up node 12.22.1
+      - name: Set up node 14.17.5
         uses: actions/setup-node@v1
         with:
-          node-version: 12.22.1
+          node-version: 14.17.5
 
       - name: Install Site dependencies
         run: npm install
 
       - name: Lint
         run: npm run lint
+
+      - name: Set up node 12.22.7
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.22.7
+
+      - name: Set up AWS CLI
+        if: github.ref == 'refs/heads/master'
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: sa-east-1
+
+      - name: Deploy
+        if: github.ref == 'refs/heads/master'
+        run: |
+          npx serverless config credentials --provider aws --key ${{ secrets.AWS_ACCESS_KEY_ID }} --secret ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          npx serverless@2.72.2

@@ -1,0 +1,8 @@
+prevboxBlog:
+  component: "@sls-next/serverless-component"
+  inputs:
+    bucketName: "prevbox-blog"
+    bucketRegion: "sa-east-1"
+    domain: "prevbox.com.br"
+    cloudfront:
+      distributionId: "E1HR28YNF28UAS"
