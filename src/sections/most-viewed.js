@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import dayjs from 'dayjs';
 import cn from 'classnames';
 import s from './../styles/sections/most-viewed.module.scss';
@@ -6,18 +7,22 @@ import c from '../contents/sections/most-viewed.json';
 
 import Select from './../components/select';
 
-import FacebookSVG from './../../public/social/facebook.svg';
-import TwitterSVG from './../../public/social/twitter.svg';
-import LinkedinSVG from './../../public/social/linkedin.svg';
-import InstagramSVG from './../../public/social/instagram.svg';
-
-export default function MostViewedSection () {
-  const selectItems = c.CATEGORIES.map((category) => {
+export default function MostViewedSection ({ mostViewedPosts, categories }) {
+  const router = useRouter();
+  const selectItems = categories.map((category) => {
     return {
-      TEXT: category.TITLE,
-      VALUE: category.SLUG
+      TEXT: category.title,
+      VALUE: category.slug
     };
   });
+
+  const onCategoryClick = (item) => {
+    if (!item) {
+      return;
+    }
+
+    router.push({ pathname: '/posts', query: { categoria: item.VALUE }});
+  };
 
   return (
     <div className={`${s['most-viewed-section']} main-wrapper`}>
@@ -28,13 +33,14 @@ export default function MostViewedSection () {
 
         <Select
           placeholder={c.EXPLORE_CATEGORIES}
-          items={selectItems}/>
+          items={selectItems}
+          onSelectClick={onCategoryClick}/>
       </div>
 
       <div className={s['most-viewed-section__posts-main']}>
-        <Post post={c.MOST_VIEWED_POSTS[0]} full={true} />
-        <Post post={c.MOST_VIEWED_POSTS[1]} />
-        <Post post={c.MOST_VIEWED_POSTS[2]} />
+        <Post post={mostViewedPosts[0]} full={true} />
+        <Post post={mostViewedPosts[1]} />
+        <Post post={mostViewedPosts[2]} />
       </div>
 
       <Link href={'/posts?tipo=mais-vistos'}>
@@ -49,70 +55,46 @@ export default function MostViewedSection () {
 function Post ({ post, full }) {
   return (
     <div className={s['most-viewed-post']} style={{
-      backgroundImage: `url('/${post.IMAGE}')`
-    }}>
+      backgroundImage: `url('${post.imageUrl}')`
+    }} id="mais-vistos">
       <div className={cn({
         [s['most-viewed-post-info']]: true,
         [s['most-viewed-post-info--full']]: full
       })}>
         <p className={s['most-viewed-post-info__categories']}>
-          {post.CATEGORIES.map((category, categoryIndex) => {
+          {post.categories.map((category, categoryIndex) => {
             return (
               <Link
-                href={`/pesquisa?categoria=${category.SLUG}`}
+                href={`/pesquisa?categoria=${category.slug}`}
                 key={`main-section-item-category-${categoryIndex}`}>
                 <a className={s['most-viewed-post-info__categories__category']}>
-                  {category.TITLE}
+                  {category.title}
                 </a>
               </Link>
             );
           })}
         </p>
 
-        <Link href={`/posts/${post.SLUG}`}>
+        <Link href={`/posts/${post.slug}`}>
           <a className={s['most-viewed-post-info__title']}>
-            {post.TITLE}
+            {post.title}
           </a>
         </Link>
 
         <div className={s['most-viewed-post-info__footer']}>
           <img
             className={s['most-viewed-post-info__footer__author-image']}
-            src={post.AUTHOR.IMAGE || '/default-user-image.png'}
-            alt={post.AUTHOR.NAME} />
+            src={post.author.image || '/default-user-image.png'}
+            alt={post.author.name} />
 
           <div className={s['most-viewed-post-info__footer__post-info']}>
             <span className={s['most-viewed-post-info__footer__author-name']}>
-              {post.AUTHOR.NAME}
+              {post.author.name}
             </span>
             <span className={s['most-viewed-post-info__footer__updated_at']}>
-              {dayjs(post.UPDATED_AT).locale('pt-br').format('MMMM D, YYYY')}
+              {dayjs(post.updatedAt).locale('pt-br').format('MMMM D, YYYY')}
             </span>
           </div>
-
-          <Link href={'https://facebook.com'}>
-            <a className={s['most-viewed-post-info__footer__social-link']}>
-              <FacebookSVG />
-            </a>
-          </Link>
-
-          <Link href={'https://twitter.com'}>
-            <a className={s['most-viewed-post-info__footer__social-link']}>
-              <TwitterSVG />
-            </a>
-          </Link>
-
-          <Link href={'https://linkedin.com'}>
-            <a className={s['most-viewed-post-info__footer__social-link']}>
-              <LinkedinSVG />
-            </a>
-          </Link>
-
-          <Link href={'https://instagram.com'}>
-            <a className={s['most-viewed-post-info__footer__social-link']}>
-              <InstagramSVG />
-            </a>
-          </Link>
         </div>
       </div>
     </div>

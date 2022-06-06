@@ -3,10 +3,7 @@
   "LOGO_ALT": "Prevbox",
   "LOGIN_BUTTON": "Acessar",
   "MENU": [
-    { "TEXT": "Cálculos", "LINK": "#calculos" },
-    { "TEXT": "Petições", "LINK": "#peticoes" },
-    { "TEXT": "Sobre nós", "LINK": "#sobre-nos" },
-    { "TEXT": "Perguntas", "LINK": "#perguntas" },
-    { "TEXT": "Assinaturas", "LINK": "#assinaturas" }
+    { "TEXT": "Principais", "LINK": "#principais" },
+    { "TEXT": "Mais vistos", "LINK": "#mais-vistos" }
   ]
 }

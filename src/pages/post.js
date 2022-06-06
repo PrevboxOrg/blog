@@ -12,21 +12,21 @@ import TwitterSVG from './../../public/social/twitter.svg';
 import LinkedinSVG from './../../public/social/linkedin.svg';
 import InstagramSVG from './../../public/social/instagram.svg';
 
-export default function PostPage ({ post }) {
+export default function PostPage ({ post, lastPosts }) {
   const breadcrumps = [
     {
       text: c.HOME,
       href: '/'
     },
-    ...post.CATEGORIES.map(category => {
+    ...(post.categories || []).map(category => {
       return {
-        text: category.TITLE,
-        href: `/posts?categoria=${category.SLUG}`
+        text: category.title,
+        href: `/posts?categoria=${category.slug}`
       };
     }),
     {
-      text: post.TITLE,
-      href: `/posts/${post.SLUG}`
+      text: post.title,
+      href: `/posts/${post.slug}`
     }
   ];
 
@@ -34,25 +34,25 @@ export default function PostPage ({ post }) {
     <MainLayout contents={post}>
       <div className={`${s['post']} main-wrapper`}>
         <div className={s['post__head']} style={{
-          backgroundImage: `url(/${post.IMAGE})`
+          backgroundImage: `url(${post.imageUrl})`
         }}>
           <h1 className={s['post__head__title']}>
-            {post.TITLE}
+            {post.title}
           </h1>
 
           <div className={s['post-social']}>
             <div className={s['post-social__wrapper']}>
               <img
                 className={s['post-social__author-image']}
-                src={post.AUTHOR.IMAGE || '/default-user-image.png'}
-                alt={post.AUTHOR.NAME} />
+                src={post.author.image || '/default-user-image.png'}
+                alt={post.author.name} />
 
               <div className={s['post-social__post-info']}>
                 <span className={s['post-social__author-name']}>
-                  {post.AUTHOR.NAME}
+                  {post.author.name}
                 </span>
                 <span className={s['post-social__updated_at']}>
-                  {dayjs(post.UPDATED_AT).locale('pt-br').format('MMMM D, YYYY')}
+                  {dayjs(post.updatedAt).locale('pt-br').format('MMMM D, YYYY')}
                 </span>
               </div>
             </div>
@@ -88,7 +88,7 @@ export default function PostPage ({ post }) {
         <Breadcrumps breadcrumps={breadcrumps} top />
 
         <div className={s['post__wrapper']}>
-          <div className={s['post__content']} dangerouslySetInnerHTML={{ __html: post.CONTENT}}></div>
+          <div className={s['post__content']} dangerouslySetInnerHTML={{ __html: post.content}}></div>
 
           <div className={s['post__sidebar']}>
             <h4 className={s['post__sidebar__title']}>
@@ -96,9 +96,9 @@ export default function PostPage ({ post }) {
             </h4>
 
             <div className={s['post__sidebar__posts']}>
-              <SidebarPost post={c.POSTS[0]}></SidebarPost>
-              <SidebarPost post={c.POSTS[1]}></SidebarPost>
-              <SidebarPost post={c.POSTS[2]}></SidebarPost>
+              <SidebarPost post={lastPosts[0]}></SidebarPost>
+              <SidebarPost post={lastPosts[1]}></SidebarPost>
+              <SidebarPost post={lastPosts[2]}></SidebarPost>
             </div>
           </div>
         </div>

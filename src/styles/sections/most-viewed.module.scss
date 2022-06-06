@@ -32,7 +32,7 @@
   &__posts-main {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: px-to-rem(300) px-to-rem(300) px-to-rem(300);
+    grid-template-rows: px-to-rem(300) px-to-rem(300);
     gap: px-to-rem(55);
     grid-template-areas:
       "second-post first-post"

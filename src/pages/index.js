@@ -6,12 +6,12 @@ import MostViewedSection from './../sections/most-viewed';
 import FeaturedVideosSection from './../sections/featured-videos';
 import CTA from './../components/cta';
 
-export default function IndexPage () {
+export default function IndexPage ({ mainPosts, mostViewedPosts, categories }) {
   return (
     <MainLayout contents={contents}>
-      <MainSection />
-      <MostViewedSection />
-      <FeaturedVideosSection />
+      <MainSection mainPosts={mainPosts} />
+      <MostViewedSection mostViewedPosts={mostViewedPosts} categories={categories} />
+      {/* <FeaturedVideosSection /> */}
       <CTA />
     </MainLayout>
   );

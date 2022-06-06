@@ -4,12 +4,8 @@
   "INFO_1": "Copyright © 2021 Prevbox. Todos os direitos reservados.",
   "INFO_2": "CNPJ nº 22.896.431/0001-10 Av Manuel Bandeira, 291 - SP",
   "MENU": [
-    { "TEXT": "Cálculos", "LINK": "#calculos" },
-    { "TEXT": "Petições", "LINK": "#peticoes" },
-    { "TEXT": "Sobre nós", "LINK": "#sobre-nos" },
-    { "TEXT": "Perguntas", "LINK": "#perguntas" },
-    { "TEXT": "Assinaturas", "LINK": "#assinaturas" },
-    { "TEXT": "Blog", "LINK": "/blog", "EXTERNAL": "true" }
+    { "TEXT": "Principais", "LINK": "#principais" },
+    { "TEXT": "Mais vistos", "LINK": "#mais-vistos" }
   ],
   "SOCIAL": [
     { "IMAGE": "/footer/twitter.svg", "IMAGE_ALT": "Twitter", "LINK": "https://twitter.com/?lang=pt" },
