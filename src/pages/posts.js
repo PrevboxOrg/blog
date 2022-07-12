@@ -4,7 +4,6 @@ import { useEffect } from 'react';
 import MainLayout from './../layout/main';
 import dayjs from 'dayjs';
 import s from './../styles/pages/posts.module.scss';
-import c from './../contents/pages/posts.json';
 
 import { debounce } from './../core/debounce';
 
@@ -13,12 +12,19 @@ import Input from './../components/input';
 import SidebarPost from './../components/sidebar-post';
 
 export default function PostsPage ({ query, posts, lastPosts }) {
+  const contents = {
+    TITLE: 'Artigos',
+    META: [
+      { TYPE: 'description', VALUE: 'Artigos Prevbox' }
+    ]
+  };
+
   const router = useRouter();
   query = query || {};
 
   const breadcrumps = [
     {
-      text: c.HOME,
+      text: 'Home',
       href: '/'
     }
   ];
@@ -32,7 +38,7 @@ export default function PostsPage ({ query, posts, lastPosts }) {
 
   if (query['nome']) {
     breadcrumps.push({
-      text: `${c.SEARCH_RESULT} ${query['nome']}`,
+      text: `Resultados da pesquisa para: ${query['nome']}`,
       href: '/posts?nome=' + query['nome']
     });
   }
@@ -55,13 +61,13 @@ export default function PostsPage ({ query, posts, lastPosts }) {
   }, 500);
 
   return (
-    <MainLayout contents={c}>
+    <MainLayout contents={contents}>
       <div className={`${s['posts']} main-wrapper`}>
         <Breadcrumps breadcrumps={breadcrumps} />
 
         {query['nome'] &&
           <h1 className={s['posts__title']}>
-            {c.SEARCH_RESULT} {query['nome']}
+            Resultados da pesquisa para: {query['nome']}
           </h1>
         }
 
@@ -75,7 +81,7 @@ export default function PostsPage ({ query, posts, lastPosts }) {
                 query: { ...query, pagina: (Number(query.pagina) || 1) + 1 }
               }} que passHref>
                 <button className={s['posts__list__see-more']}>
-                  {c.SEE_MORE}
+                  Veja mais
                 </button>
               </Link>
             }
@@ -83,18 +89,18 @@ export default function PostsPage ({ query, posts, lastPosts }) {
 
           <div className={s['posts__sidebar']}>
             <h4 className={s['posts__sidebar__title']}>
-              {c.SEARCH}
+              Buscar
             </h4>
 
             <Input
               icon={'/icons/search.svg'}
               id="search-input"
-              placeholder={c.SEARCH_PLACEHOLDER}
+              placeholder={'Pesquisar'}
               onChange={onSearchChange}>
             </Input>
 
             <h4 className={`${s['posts__sidebar__title']} hide-mobile`}>
-              {c.LAST_POSTS}
+              Ultimos posts
             </h4>
 
             <div className={`${s['posts__sidebar__posts']} hide-mobile`}>

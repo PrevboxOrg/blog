@@ -1,0 +1,105 @@
+@import './../settings/mixins.settings.scss';
+@import './../settings/variables.settings.scss';
+
+.article {
+  margin-top: calc(#{map-get($sizes, 'header-height')} + #{px-to-rem(100)});
+
+  &__editor {
+    margin-bottom: px-to-rem(48);
+    font-weight: initial;
+    overflow: hidden;
+    border: thin solid map-get($colors, 'tertiary-dark');
+    border-radius: px-to-rem(20);
+
+    &-header {
+      border-top-left-radius: px-to-rem(20);
+      border-top-right-radius: px-to-rem(20);
+      border-bottom: thin solid map-get($colors, 'tertiary-dark');
+    }
+
+    &-text {
+      padding: 0px px-to-rem(24);
+      height: px-to-rem(650);
+      font-family: initial;
+      color: initial;
+      border-bottom-left-radius: px-to-rem(20);
+      border-bottom-right-radius: px-to-rem(20);
+    }
+  }
+
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: px-to-rem(24);
+    margin-bottom: px-to-rem(48);
+
+    @media only screen and (max-width: #{map-get($responsive, 'mobile-large')}) {
+      flex-direction: column;
+    }
+  }
+
+  &__input {
+    position: relative;
+    height: px-to-rem(60);
+    width: 100%;
+
+    input {
+      padding: 0px px-to-rem(30);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+      border: 3px solid map-get($colors, 'primary');
+      border-radius: px-to-rem(30);
+      font-size: px-to-rem(20);
+      color: map-get($colors, 'text');
+
+      &::placeholder {
+        font-size: px-to-rem(20);
+        color: map-get($colors, 'tertiary');
+      }
+    }
+
+    &-error {
+      position: absolute;
+      bottom: 0;
+      left: px-to-rem(26);
+      font-size: px-to-rem(14);
+      color: map-get($colors, 'primary');
+      transform: translateY(120%);
+    }
+  }
+
+  &__submit {
+    @include button(map-get($colors, 'primary'));
+    margin: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: px-to-rem(52.5);
+    font-size: px-to-rem(20);
+    font-weight: 500;
+    border-radius: 24px;
+    text-decoration: none;
+  }
+
+  &-loading {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 30;
+    background-color: rgba($color: map-get($colors, 'primary'), $alpha: 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: px-to-rem(28);
+    font-weight: 600;
+    color: map-get($colors, 'secondary');
+    pointer-events: none;
+  }
+}

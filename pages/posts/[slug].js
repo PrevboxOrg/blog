@@ -75,7 +75,8 @@ export async function getServerSideProps({ params }) {
     variables: {
       where: {
         draft: false,
-        archived: false
+        archived: false,
+        request: false
       },
       take: 3
     }

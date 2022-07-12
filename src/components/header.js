@@ -3,7 +3,6 @@ import { useRouter } from 'next/router';
 import { useState } from 'react';
 import cn from 'classnames';
 import s from './../styles/components/header.module.scss';
-import c from './../contents/components/header.json';
 
 import CloseSVG from './../../public/icons/close.svg';
 
@@ -29,21 +28,27 @@ export default function Header () {
       <Link href={'/'} passHref>
         <img
           className={s['header__logo']}
-          src={c['LOGO']} alt={c['LOGO_ALT']} />
+          src={'/logo.png'} alt={'Prevbox'} />
       </Link>
 
       <ul className={s['header__menu']}>
-        {c['MENU'].map((menuItem, index) => {
-          return (
-            <li key={`header-menu-item-${index}`}>
-              <Link href={menuItem.LINK}>
-                <a className={s['header__menu__item']} target={menuItem.EXTERNAL ? '_blank' : '_self'}>
-                  {menuItem.TEXT}
-                </a>
-              </Link>
-            </li>
-          );
-        })}
+        <li>
+          <a className={s['header__menu__item']} href={'/#principais'}>
+            Principais
+          </a>
+        </li>
+
+        <li>
+          <a className={s['header__menu__item']} href={'/#mais-vistos'}>
+            Mais vistos
+          </a>
+        </li>
+
+        <li>
+          <a className={s['header__menu__item']} href={'/escrever-artigo'}>
+            Escrever artigo
+          </a>
+        </li>
 
         <li>
           <a className={s['header__menu__item']} onClick={() => setSearchActive(!searchActive)}>

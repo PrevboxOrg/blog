@@ -1,3 +1,4 @@
 export const config = {
-  baseUrl: 'http://Prevboxapi-env.eba-yigt2vpz.sa-east-1.elasticbeanstalk.com/graphql'
+  baseUrl: 'https://api.prevbox.com.br/graphql'
+  // baseUrl: 'http://localhost:8080/graphql'
 };

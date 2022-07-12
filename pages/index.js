@@ -74,7 +74,8 @@ export async function getServerSideProps() {
     variables: {
       where: {
         archived: false,
-        draft: false
+        draft: false,
+        request: false
       },
       take: 3,
       orderBy: 'views_desc'

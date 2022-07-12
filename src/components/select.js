@@ -1,5 +1,4 @@
 import s from './../styles/components/select.module.scss';
-import c from './../contents/components/select.json';
 
 import ArrowSVG from './../../public/components/select/arrow.svg';
 import { useState } from 'react';
@@ -25,7 +24,7 @@ export default function Select ({ placeholder, items, onSelectClick }) {
         <li
           className={s['select__items__item']}
           onClick={() => select(null)}>
-          {c.NONE}
+          Nenhum/a
         </li>
 
         {items.map((item, index) => {

@@ -16,7 +16,7 @@ export default function FeaturedVideoSection () {
     <div className={s['featured-videos-section']}>
       <div className={'main-wrapper'}>
         <h3 className={s['featured-videos-section__title']}>
-          {c.TITLE}
+          Vídeos em destaques
         </h3>
 
         <div className={s['featured-videos-section__videos']}>
@@ -28,7 +28,7 @@ export default function FeaturedVideoSection () {
           <div>
             <Link href={'https://facebook.com'}>
               <a className={s['featured-videos-section__videos__see-more']}>
-                {c.SEE_MORE}
+                Veja mais
               </a>
             </Link>
           </div>

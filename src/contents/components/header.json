@@ -1,9 +1,0 @@
-{
-  "LOGO": "/logo.png",
-  "LOGO_ALT": "Prevbox",
-  "LOGIN_BUTTON": "Acessar",
-  "MENU": [
-    { "TEXT": "Principais", "LINK": "#principais" },
-    { "TEXT": "Mais vistos", "LINK": "#mais-vistos" }
-  ]
-}

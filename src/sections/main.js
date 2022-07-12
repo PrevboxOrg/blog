@@ -4,7 +4,6 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Pagination, Autoplay } from 'swiper';
 import dayjs from 'dayjs';
 import s from './../styles/sections/main.module.scss';
-import c from './../contents/sections/main.json';
 
 SwiperCore.use([Pagination, Autoplay]);
 
@@ -92,7 +91,7 @@ export default function MainSection ({ mainPosts }) {
 
         <Link href={`/posts/${activeSlide.slug}`}>
           <a className={s['slide-info__know-more']}>
-            {c.KNOW_MORE}
+            Saiba mais
           </a>
         </Link>
       </div>

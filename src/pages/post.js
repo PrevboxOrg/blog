@@ -2,7 +2,6 @@ import Link from 'next/link';
 import MainLayout from './../layout/main';
 import dayjs from 'dayjs';
 import s from './../styles/pages/post.module.scss';
-import c from './../contents/pages/post.json';
 
 import Breadcrumps from './../components/breadcrumps';
 import SidebarPost from './../components/sidebar-post';
@@ -15,15 +14,13 @@ import InstagramSVG from './../../public/social/instagram.svg';
 export default function PostPage ({ post, lastPosts }) {
   const breadcrumps = [
     {
-      text: c.HOME,
+      text: 'Home',
       href: '/'
     },
-    ...(post.categories || []).map(category => {
-      return {
-        text: category.title,
-        href: `/posts?categoria=${category.slug}`
-      };
-    }),
+    ...(post.categories || []).map(category => ({
+      text: category.title,
+      href: `/posts?categoria=${category.slug}`
+    })),
     {
       text: post.title,
       href: `/posts/${post.slug}`
@@ -36,6 +33,11 @@ export default function PostPage ({ post, lastPosts }) {
         <div className={s['post__head']} style={{
           backgroundImage: `url(${post.imageUrl})`
         }}>
+          <Breadcrumps
+            breadcrumps={(post.categories || []).map(category => ({ text: category.title, href: `/posts?categoria=${category.slug}` }))}
+            color={'background'}
+          />
+
           <h1 className={s['post__head__title']}>
             {post.title}
           </h1>
@@ -56,32 +58,6 @@ export default function PostPage ({ post, lastPosts }) {
                 </span>
               </div>
             </div>
-
-            <div className={s['post-social__wrapper']}>
-              <Link href={'https://facebook.com'}>
-                <a className={s['post-social__social-link']}>
-                  <FacebookSVG />
-                </a>
-              </Link>
-
-              <Link href={'https://twitter.com'}>
-                <a className={s['post-social__social-link']}>
-                  <TwitterSVG />
-                </a>
-              </Link>
-
-              <Link href={'https://linkedin.com'}>
-                <a className={s['post-social__social-link']}>
-                  <LinkedinSVG />
-                </a>
-              </Link>
-
-              <Link href={'https://instagram.com'}>
-                <a className={s['post-social__social-link']}>
-                  <InstagramSVG />
-                </a>
-              </Link>
-            </div>
           </div>
         </div>
 
@@ -92,7 +68,7 @@ export default function PostPage ({ post, lastPosts }) {
 
           <div className={s['post__sidebar']}>
             <h4 className={s['post__sidebar__title']}>
-              {c.LAST_POSTS}
+              Ultimos posts
             </h4>
 
             <div className={s['post__sidebar__posts']}>

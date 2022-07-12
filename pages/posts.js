@@ -40,7 +40,8 @@ export async function getServerSideProps({ query }) {
 
   const where = {
     draft: false,
-    archived: false
+    archived: false,
+    request: false
   };
   let take = 3;
   let orderBy = 'createdAt_desc';
@@ -79,7 +80,8 @@ export async function getServerSideProps({ query }) {
     variables: {
       where: {
         draft: false,
-        archived: false
+        archived: false,
+        request: false
       },
       take: 3
     }

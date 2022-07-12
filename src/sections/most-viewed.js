@@ -3,7 +3,6 @@ import { useRouter } from 'next/router';
 import dayjs from 'dayjs';
 import cn from 'classnames';
 import s from './../styles/sections/most-viewed.module.scss';
-import c from '../contents/sections/most-viewed.json';
 
 import Select from './../components/select';
 
@@ -28,11 +27,11 @@ export default function MostViewedSection ({ mostViewedPosts, categories }) {
     <div className={`${s['most-viewed-section']} main-wrapper`}>
       <div className={s['most-viewed-section__header']}>
         <h3 className={s['most-viewed-section__header__title']}>
-          {c.MOST_VIEWED}
+          Mais vistos
         </h3>
 
         <Select
-          placeholder={c.EXPLORE_CATEGORIES}
+          placeholder={'Explore por categoria'}
           items={selectItems}
           onSelectClick={onCategoryClick}/>
       </div>
@@ -45,7 +44,7 @@ export default function MostViewedSection ({ mostViewedPosts, categories }) {
 
       <Link href={'/posts?tipo=mais-vistos'}>
         <a className={s['most-viewed-section__see-more']}>
-          {c.SEE_MORE}
+          Veja mais
         </a>
       </Link>
     </div>

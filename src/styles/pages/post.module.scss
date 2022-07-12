@@ -32,11 +32,14 @@
       justify-content: space-between;
       align-items: flex-end;
       height: px-to-rem(55);
-      border-bottom: thin solid map-get($colors, 'background');
+      border-bottom: 2px solid map-get($colors, 'background');
 
       &__wrapper {
+        padding: px-to-rem(8) px-to-rem(12);
         display: flex;
         align-items: flex-end;
+        background: map-get($colors, 'secondary');
+        border-radius: px-to-rem(20);
 
         &:first-of-type {
           align-items: center;
@@ -47,12 +50,13 @@
         margin-right: px-to-rem(10);
         width: px-to-rem(55);
         height: px-to-rem(55);
+        border-radius: px-to-rem(20);
       }
 
       &__author-name {
         font-size: px-to-rem(14);
         font-weight: 600;
-        color: map-get($colors, 'background');
+        color: map-get($colors, 'primary-light');
       }
 
       &__updated_at {

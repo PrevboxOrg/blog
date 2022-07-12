@@ -24,7 +24,7 @@
         width: 4px;
         height: 4px;
         border-radius: 100%;
-        background-color: map-get($colors, 'tertiary-dark');
+        background-color: map-get($colors, 'primary');
         transform: translate(50%, -50%);
       }
     }
@@ -33,5 +33,12 @@
   &--top {
     margin-top: px-to-rem(25);
     margin-bottom: 0px;
+  }
+
+  &--color-background {
+
+    .breadcrumps__item {
+      @include link(map-get($colors, 'background'));
+    }
   }
 }

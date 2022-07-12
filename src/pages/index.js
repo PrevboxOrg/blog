@@ -1,18 +1,24 @@
 import MainLayout from './../layout/main';
-import contents from './../contents/pages/index.json';
 
 import MainSection from './../sections/main';
 import MostViewedSection from './../sections/most-viewed';
-import FeaturedVideosSection from './../sections/featured-videos';
-import CTA from './../components/cta';
+import CTARequest from './../components/cta-request';
+import CTANewsletter from './../components/cta-newsletter';
 
 export default function IndexPage ({ mainPosts, mostViewedPosts, categories }) {
+  const contents = {
+    TITLE: 'Início',
+    META: [
+      { TYPE: 'description', VALUE: 'Página inicial blog prevbox' }
+    ]
+  };
+
   return (
     <MainLayout contents={contents}>
       <MainSection mainPosts={mainPosts} />
       <MostViewedSection mostViewedPosts={mostViewedPosts} categories={categories} />
-      {/* <FeaturedVideosSection /> */}
-      <CTA />
+      <CTARequest />
+      <CTANewsletter />
     </MainLayout>
   );
 }

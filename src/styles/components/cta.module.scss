@@ -63,10 +63,10 @@
     &__submit {
       @include button(map-get($colors, 'primary'));
       margin: 0px;
+      padding: 0px px-to-rem(60);
       display: flex;
       justify-content: center;
       align-items: center;
-      width: px-to-rem(226);
       height: px-to-rem(48);
       font-size: px-to-rem(20);
       font-weight: 500;
