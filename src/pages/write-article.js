@@ -20,7 +20,7 @@ export default function WriteArticlePage () {
 
   const [isLoading, setIsLoading] = useState(false);
 
-  const [formValue, isFormValid, updateInputValue, updateInputValidity] = useForm({
+  const [formValue, isFormValid, updateInputValue] = useForm({
     title: { value: '', isRequired: true },
     description: { value: '', isRequired: true },
     imageUrl: { value: '', isRequired: true },

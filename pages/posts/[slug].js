@@ -31,6 +31,14 @@ export async function getServerSideProps({ params }) {
           name
           image
         }
+        comments {
+          author {
+            name
+            company
+          }
+          content
+          archived
+        }
         content
         createdAt
         updatedAt
@@ -63,6 +71,16 @@ export async function getServerSideProps({ params }) {
     }
   `;
 
+  const updatePostViewsMutation = `
+    mutation updatePostViews (
+      $id: ID!
+    ) {
+      updatePostViews (id: $id) {
+        id
+      }
+    }
+  `;
+
   const postResponse = await axios.post(config.baseUrl, {
     query: postQuery,
     variables: {
@@ -82,19 +100,17 @@ export async function getServerSideProps({ params }) {
     }
   });
 
+  const post = (postResponse.data && postResponse.data.data && postResponse.data.data.postBySlug);
+  const lastPosts = (lastsPostResponse.data && lastsPostResponse.data.data && lastsPostResponse.data.data.posts && lastsPostResponse.data.data.posts.items);
+
+  if (post && post.id) {
+    await axios.post(config.baseUrl, {
+      query: updatePostViewsMutation,
+      variables: { id: post.id }
+    });
+  }
+
   return {
-    props: {
-      post: (
-        postResponse.data &&
-        postResponse.data.data &&
-        postResponse.data.data.postBySlug
-      ),
-      lastPosts: (
-        lastsPostResponse.data &&
-        lastsPostResponse.data.data &&
-        lastsPostResponse.data.data.posts &&
-        lastsPostResponse.data.data.posts.items
-      )
-    }
+    props: { post, lastPosts }
   };
 }
